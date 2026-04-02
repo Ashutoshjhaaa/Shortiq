@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import "tailwindcss";
+@import "shadcn/tailwind.css";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-script: 'Pacifico', cursive;
+
+  --tracking-tight: -0.02em;
+  --tracking-tighter: -0.05em;
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Brand Variables - Premium Rose Theme */
+  --brand-primary: oklch(0.6 0.2 18);
+  --brand-primary-hover: oklch(0.55 0.2 18);
+  --brand-primary-dim: oklch(0.6 0.2 18 / 0.1);
+  
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+
+  /* Map Primary to the unified brand color */
+  --primary: var(--brand-primary);
+  --primary-foreground: oklch(0.99 0.005 18);
+
+  --secondary: oklch(0.967 0.001 286.375);
+  --secondary-foreground: oklch(0.21 0.006 285.885);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: white;
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: var(--brand-primary);
+
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: var(--brand-primary);
+  --sidebar-primary-foreground: white;
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: var(--brand-primary);
+  
+  --chart-1: oklch(0.81 0.117 11.638);
+  --chart-2: oklch(0.645 0.246 16.439);
+  --chart-3: oklch(0.586 0.253 17.585);
+  --chart-4: oklch(0.514 0.222 16.935);
+  --chart-5: oklch(0.455 0.188 13.697);
+}
+
+.dark {
+  --background: oklch(10.37% 0.014 18); /* Deeper, richer dark */
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(12.5% 0.015 18);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(12.5% 0.015 18);
+  --popover-foreground: oklch(0.985 0 0);
+
+  --primary: var(--brand-primary);
+  --primary-foreground: oklch(0.99 0.005 18);
+
+  --secondary: oklch(16% 0.015 18);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(14% 0.015 18);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: var(--brand-primary-dim);
+  --accent-foreground: var(--brand-primary);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: white;
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: var(--brand-primary);
+
+  --sidebar: oklch(12% 0.015 18);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: var(--brand-primary);
+  --sidebar-primary-foreground: white;
+  --sidebar-accent: oklch(16% 0.015 18);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: var(--brand-primary);
+  
+  --chart-1: oklch(0.81 0.117 11.638);
+  --chart-2: oklch(0.645 0.246 16.439);
+  --chart-3: oklch(0.586 0.253 17.585);
+  --chart-4: oklch(0.514 0.222 16.935);
+  --chart-5: oklch(0.455 0.188 13.697);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ─── ShortIQ Global Styles ────────────────────────────────────────────────── */
+
+/* Hero dot grid background */
+.hero-grid {
+  background-image: radial-gradient(circle, var(--brand-primary) 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
+}
+
+.shortiq-root {
+  background: var(--background);
+  min-height: 100vh;
+  font-family: var(--font-plus-jakarta), var(--font-geist-sans), system-ui, sans-serif;
+  color: var(--foreground);
+  letter-spacing: -0.01em;
+  transition: background 0.5s ease, color 0.5s ease;
+  --accent: var(--brand-primary);
+  --accent-dim: var(--brand-primary-dim);
+  --grid-dot: rgba(255, 255, 255, 0.05);
+}
+
+.font-aesthetic {
+  letter-spacing: var(--tracking-tighter);
+  line-height: 0.95;
+}
+
+.light .shortiq-root {
+  --grid-dot: oklch(from var(--brand-primary) l c h / 0.08);
+}
+
+/* ─── Modern Grid ──────────────────────────────────────────────────────── */
+.modern-grid {
+  background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(circle at 50% 30%, black, transparent 85%);
+  -webkit-mask-image: radial-gradient(circle at 50% 30%, black, transparent 85%);
+}
+
+/* ─── Reusable Utilities ────────────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--foreground) 0%, var(--brand-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--brand-primary);
+  color: white;
+  font-weight: 700;
+  border-radius: var(--radius);
+  transition: all 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: var(--brand-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px -5px var(--brand-primary-dim);
+}
+
+.section-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 9991px;
+  background: var(--brand-primary-dim);
+  color: var(--brand-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid var(--brand-primary-dim);
+}
+
+.section-heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--foreground);
+  line-height: 1.15;
+}
+
+.section-sub {
+  max-width: 560px;
+  margin: 1rem auto 0;
+  color: var(--muted-foreground);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* ─── Glass Card ─────────────────────────────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.02);
+  transition: all 0.5s ease;
+}
+
+.glass-card:hover {
+  background: var(--brand-primary-dim);
+  border-color: var(--brand-primary);
+  box-shadow: 0 20px 60px var(--brand-primary-dim);
+}
+
+/* ─── Animations ─────────────────────────────────────────────────────────── */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease both;
+}
+
+.animation-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-300 {
+  animation-delay: 0.3s;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(6deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(6deg);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes bounce-short {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15%);
+  }
+}
+
+.animate-bounce-short {
+  animation: bounce-short 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.typewriter-cursor {
+  display: inline;
+  color: var(--brand-primary);
+  animation: blink 1s step-end infinite;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brand-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-primary-hover);
+}
+
+/* ─── Hero SVG Background Icons ────────────────────────────────────────── */
+.hero-svg-icon {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1; /* Ensure they are above the grid but below content */
+  opacity: 0.35;
+  transition: opacity 0.5s ease;
+}
+
+.dark .hero-svg-icon {
+  opacity: 0.25;
+}
+
+.hero-svg-icon .ico {
+  fill: none;
+  stroke: var(--brand-primary);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero-svg-icon .ico-fill {
+  fill: var(--brand-primary);
+  fill-opacity: 0.05;
+}
+
+.hero-svg-icon .ico-fill2 {
+  fill: var(--brand-primary);
+}
